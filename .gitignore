@@ -8,3 +8,4 @@ screenshots/
 .settings/
 
 *.log
+.DS_Store
