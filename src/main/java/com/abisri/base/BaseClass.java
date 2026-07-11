@@ -1,15 +1,16 @@
 package com.abisri.base;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.io.FileHandler;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseClass {
 
@@ -18,9 +19,12 @@ public class BaseClass {
     @BeforeMethod
     public void setUp() {
 
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
 
-        driver.manage().window().maximize();
+        options.addArguments("--headless=new");
+        options.addArguments("--window-size=1920,1080");
+
+        driver = new ChromeDriver(options);
 
         driver.get("https://opensource-demo.orangehrmlive.com/");
     }
@@ -28,8 +32,12 @@ public class BaseClass {
     @AfterMethod
     public void tearDown() {
 
-        driver.quit();
+        if (driver != null) {
+
+            driver.quit();
+        }
     }
+
     public void captureScreenshot(String testName) throws IOException {
 
         TakesScreenshot screenshot =
@@ -50,7 +58,5 @@ public class BaseClass {
                 new File(screenshotFolder, testName + ".png");
 
         FileHandler.copy(source, destination);
-    
-    
     }
-} 
+}
