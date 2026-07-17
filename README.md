@@ -1,62 +1,70 @@
-# QA Automation Framework
+# OrangeHRM QA Automation Framework
 
-A Selenium-based QA automation framework developed using Java, TestNG, Maven, Page Object Model, Apache POI, Extent Reports, and Cucumber BDD.
+This project is a Selenium-based QA Automation Framework developed to automate the testing of the OrangeHRM web application. It is built using Java, Selenium WebDriver, TestNG, Cucumber BDD, Maven, and the Page Object Model (POM).
+
+The framework includes data-driven testing using Excel (Apache POI), HTML reporting using Extent Reports and Cucumber Reports, and supports execution using Jenkins and Docker.
 
 ## Technologies Used
 
 - Java
 - Selenium WebDriver
 - TestNG
-- Maven
-- Page Object Model (POM)
-- Apache POI
 - Cucumber BDD
 - Gherkin
+- Maven
+- Apache POI
+- Page Object Model (POM)
 - Extent Reports
-- Git
-- GitHub
+- Git & GitHub
+- Jenkins
+- Docker
 
 ## Features
 
-- Page Object Model design pattern
-- Data-driven testing using Excel and Apache POI
-- TestNG DataProvider
-- Positive and negative login testing
-- Assertions for test validation
-- Explicit waits
-- Automatic screenshot capture on test failure
-- TestNG listeners
-- Extent HTML reports
-- TestNG suite execution
-- Cucumber BDD integration
-- Scenario Outline and Examples for data-driven Cucumber testing
+- Page Object Model (POM)
+- Data-driven testing using Excel
+- Positive and Negative Login Testing
+- Logout Automation
+- Explicit Waits
+- Screenshot capture for failed tests
+- TestNG Listeners
+- Extent Reports
+- Cucumber Reports
 
 ## Automated Test Scenarios
 
-The framework currently automates:
-
-- Valid login
-- Invalid login scenarios
-- Data-driven login testing
-- Logout functionality
-- Cucumber Scenario Outline execution with multiple credential combinations
+- Valid Login
+- Invalid Login
+- Data-driven Login Testing
+- Logout Functionality
+- Cucumber Scenario Outline Execution
 
 ## Project Structure
 
-```text
 src/main/java
-├── base
-├── pages
-└── utilities
+- base
+- pages
+- utilities
 
 src/test/java
-├── tests
-├── listeners
-├── stepdefinitions
-└── runners
+- tests
+- listeners
+- runners
+- stepdefinitions
 
 src/test/resources
-└── features
+- features
 
 testdata
-└── LoginData.xlsx
+- LoginData.xlsx
+
+## How to Run
+
+1. Clone the repository.
+2. Open it as a Maven project in Eclipse.
+3. Run `testng.xml` or execute:
+   `mvn clean test`
+
+## Author
+
+Abhi Sri
